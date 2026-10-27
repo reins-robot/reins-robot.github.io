@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reins</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Reins">
+<meta property="og:description" content="Reins: Frontier Multimodal Models Driving Real Robot Arms on Long-Horizon Tasks, Zero-Shot">
+<meta property="og:url" content="https://reins-robot.github.io/">
+<meta property="og:image" content="https://reins-robot.github.io/img/teaser.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+html { color-scheme: light; }
+body { margin: 0; }
+img { max-width: 100%; }
+</style>
+<meta name="description" content="Reins: Frontier Multimodal Models Driving Real Robot Arms on Long-Horizon Tasks, Zero-Shot">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one centred column; media 880px wide (teaser 1100px), reading text 720px. Light only, like a paper. */
+:root {
+  --bg: #ffffff;
+  --ink: #1f2328;
+  --muted: #5b6270;
+  --rule: #e3e6eb;
+  --tint: #f4f6f9;
+  --link: #1a5bb5;
+  --btn: #2a2e35;
+  --btn-ink: #ffffff;
+  --sans: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Noto Sans Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.6 var(--sans);
+  padding-block: 48px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+code { font: 0.9em var(--mono); }
+
+.col { max-width: 880px; margin-inline: auto; }
+.text { max-width: 720px; margin-inline: auto; }
+.wide { max-width: 1100px; margin-inline: auto; }
+
+header { text-align: center; }
+h1 { margin: 0; font-size: 44px; line-height: 1.1; font-weight: 700; letter-spacing: -0.01em; }
+.subtitle { margin: 10px auto 0; max-width: 780px; font-size: 25px; line-height: 1.3; font-weight: 600; text-wrap: balance; }
+.authors { margin: 22px 0 0; font-size: 17px; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 22px; }
+.authors sup, .affil sup { font-size: 0.7em; }
+.affil { margin: 6px 0 0; color: var(--muted); font-size: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 20px; }
+.links { margin: 22px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.btn {
+  display: inline-block; padding: 7px 18px; border-radius: 999px;
+  background: var(--btn); color: var(--btn-ink); font-size: 15px; font-weight: 500;
+}
+.btn:hover { text-decoration: none; background: #000000; }
+.btn.off { background: var(--tint); color: var(--muted); }
+
+section { margin-top: 56px; }
+h2 { margin: 0 0 16px; font-size: 26px; font-weight: 700; text-align: center; }
+h3 { margin: 36px 0 6px; font-size: 19px; font-weight: 600; }
+p { margin: 0 0 14px; }
+
+video, .fig img { display: block; width: 100%; max-width: 100%; height: auto; background: #000000; border-radius: 3px; }
+.fig img { background: var(--bg); }
+.teaser video { aspect-ratio: 32 / 9; }
+.cap { margin: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.cap b { color: var(--ink); font-weight: 600; }
+
+.abstract p { text-align: justify; hyphens: auto; }
+
+.note { color: var(--muted); font-size: 15px; }
+.grid { display: grid; gap: 28px 20px; margin-top: 14px; }
+.g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 586px; margin-inline: auto; }
+.task video { aspect-ratio: 16 / 9; }
+.task.head video { aspect-ratio: 4 / 3; }
+.task h4 { margin: 10px 0 2px; font-size: 16px; font-weight: 600; }
+.task p { margin: 0 0 4px; font-size: 14px; line-height: 1.5; }
+.task .score { font-variant-numeric: tabular-nums; }
+
+.points { margin-block: 18px 0; padding-left: 20px; }
+.points li { margin-bottom: 8px; }
+
+.bib { position: relative; }
+pre {
+  margin: 0; padding: 16px 18px; overflow-x: auto;
+  background: var(--tint); border-radius: 4px;
+  font: 13px/1.55 var(--mono); color: var(--ink);
+}
+.copy {
+  position: absolute; top: 8px; right: 8px;
+  padding: 3px 10px; border: 1px solid var(--rule); border-radius: 4px;
+  background: var(--bg); color: var(--muted); font: 13px var(--sans); cursor: pointer;
+}
+footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; text-align: center; }
+footer .mail { user-select: all; color: var(--ink); }
+
+@media (max-width: 760px) {
+  body { padding-block: 32px 32px; }
+  h1 { font-size: 36px; }
+  .subtitle { font-size: 20px; }
+  .g3 { grid-template-columns: minmax(0, 1fr); }
+  .teaser video { aspect-ratio: 32 / 9; }
+}
+@media (max-width: 560px) {
+  .g2 { grid-template-columns: minmax(0, 1fr); }
+  .abstract p { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<header class="col">
+  <h1>Reins</h1>
+  <p class="subtitle">Frontier Multimodal Models Driving Real Robot Arms on Long-Horizon Tasks, Zero-Shot</p>
+  <div class="authors">
+    <span>Pengfei Ye<sup>1</sup></span>
+    <span>Zhiyang Dou<sup>1</sup></span>
+    <span>Yuxiang Ma<sup>1</sup></span>
+    <span>Haonan Chen<sup>2</sup></span>
+    <span>Heng Yang<sup>2</sup></span>
+    <span>Edward H. Adelson<sup>1</sup></span>
+  </div>
+  <div class="affil"><span><sup>1</sup>MIT CSAIL</span><span><sup>2</sup>Harvard University</span></div>
+  <nav class="links">
+    <a class="btn" href="reins.pdf" target="_blank" rel="noopener">Paper</a>
+    <a class="btn" href="#videos">Videos</a>
+    <span class="btn off" title="Code will be released upon publication">Code (coming soon)</span>
+    <a class="btn" href="#bibtex">BibTeX</a>
+  </nav>
+</header>
+
+<section class="teaser wide" style="margin-top:40px">
+  <video src="videos/teaser.mp4" poster="img/teaser.jpg" muted loop playsinline preload="metadata" data-auto aria-label="Eight tasks: shell game, drawer, towel, shirt, sweep, lamp, pyramid and whiteboard"></video>
+  <p class="cap" style="text-align:center">Eight tasks, each driven by an off-the-shelf model through Reins. Clips sped up.</p>
+</section>
+
+<section class="abstract text" id="abstract">
+  <h2>Abstract</h2>
+  <p>Frontier models such as GPT-6.1 Sol, GPT-6 Astra and Claude Opus 5.5 can now plan and call tools, yet they still struggle to drive real robots through long-horizon, contact-rich manipulation, blind while the arm moves and while they think. We present Reins, a harness in which an off-the-shelf model operates a dual-arm robot with 3D perception tools and atomic actions that report contact and grip. The model chains actions in one call, each with a condition that must hold, stopping at the first that fails; a second instance, the narrator, watches the cameras continuously and reports what changed with every result. From images, Reins also builds a simulation-ready twin of the scene for continual policy learning. With natural-language prompts and no task-specific code, GPT-6.1 Sol succeeds in 88% of real episodes on five tasks; without the harness, it fails every shell game, taking 8 times as long. Three frontier models perform alike but differ in tracking a scene that changes while the actor thinks. Code will be released upon publication.</p>
+</section>
+
+<section class="col" id="videos">
+  <h2>Tasks</h2>
+  <p class="note text">Two 6-DoF AirBot Play arms with stock parallel grippers, RGB-D cameras on the head and on each wrist. Every episode starts from the zero pose and the operator judges success. Sol, Astra and Opus are GPT-6.1 Sol, GPT-6 Astra and Claude Opus 5.5.</p>
+
+  <h3>The five tasks in the paper</h3>
+  <p class="note">Success counts are from the paper, five episodes per model.</p>
+  <div class="grid g3">
+    <article class="task">
+      <video src="videos/shell.mp4" poster="img/shell.jpg" muted loop playsinline controls preload="none" data-auto></video>
+      <h4>Shell game</h4>
+      <p>An operator shuffles three mugs for 20–30&nbsp;s; the first mug lifted must be the one covering the red object.</p>
+      <p class="score">Sol 5/5 · Astra 4/5 · Opus 2/5</p>
+    </article>
+    <article class="task">
+      <video src="videos/drawer.mp4" poster="img/drawer.jpg" muted loop playsinline controls preload="none" data-auto></video>
+      <h4>Drawer</h4>
+      <p>Open a drawer by its 3–4&nbsp;mm lip, put a block in, and close it.</p>
+      <p class="score">Sol 5/5 · Astra 5/5 · Opus 5/5</p>
+    </article>
+    <article class="task">
+      <video src="videos/shirt.mp4" poster="img/shirt.jpg" muted loop playsinline controls preload="none" data-auto></video>
+      <h4>Shirt</h4>
+      <p>Two arms tuck in the sleeves, then fold the shirt twice.</p>
+      <p class="score">Sol 3/5</p>
+    </article>
+  </div>
+  <div class="grid g2" style="margin-top:28px">
+    <article class="task head">
+      <video src="videos/towel.mp4" poster="img/towel.jpg" muted loop playsinline controls preload="none" data-auto></video>
+      <h4>Towel</h4>
+      <p>Fold a towel twice.</p>
+      <p class="score">Sol 4/5</p>
+    </article>
+    <article class="task head">
+      <video src="videos/sweep.mp4" poster="img/sweep.jpg" muted loop playsinline controls preload="none" data-auto></video>
+      <h4>Sweep</h4>
+      <p>One arm holds a dustpan; the other brushes the objects into it.</p>
+      <p class="score">Sol 5/5</p>
+    </article>
+  </div>
+
+  <h3>More tasks</h3>
+  <p class="note">These tasks are not part of the paper's evaluation.</p>
+  <div class="grid g3">
+    <article class="task">
+      <video src="videos/lamp.mp4" poster="img/lamp.jpg" muted loop playsinline controls preload="none" data-auto></video>
+      <h4>Lamp</h4>
+      <p>Pull the monkey pendant down to switch on the lamp.</p>
+    </article>
+    <article class="task">
+      <video src="videos/pyramid.mp4" poster="img/pyramid.jpg" muted loop playsinline controls preload="none" data-auto></video>
+      <h4>Pyramid</h4>
+      <p>Stack bricks into a three-level pyramid.</p>
+    </article>
+    <article class="task">
+      <video src="videos/whiteboard.mp4" poster="img/whiteboard.jpg" muted loop playsinline controls preload="none" data-auto></video>
+      <h4>Whiteboard</h4>
+      <p>Erase the writing on a whiteboard.</p>
+    </article>
+  </div>
+  <p class="cap">Clips from our demo video play at 5× and skip some stretches of waiting.</p>
+</section>
+
+<section class="col" id="method">
+  <h2>How Reins works</h2>
+  <div class="text">
+    <p>An off-the-shelf model, the <em>actor</em>, drives both arms through eighteen tools: perception tools that turn an object name or an image point into a 3D point (SAM&nbsp;3 on RGB-D, to about 1.6&nbsp;mm with the wrist camera), atomic actions that report contact and grip, and a task ledger. There is no skill library and no task code; task knowledge enters only through a natural-language prompt.</p>
+    <p><b>Guarded chains.</b> Thinking takes time: model latency is 41–78% of an episode, so each decision should cover several checked steps. With <code>do</code>, the actor chains up to eight tool calls in one decision and attaches to each a condition that must hold and an optional repeat condition. The chain stops at the first run that fails its check.</p>
+    <p><b>The narrator.</b> The actor is blind while it thinks. A second instance of the same model watches the head camera at 1 frame/s, and its account of what changed arrives with the next tool result as <code>what_happened</code>. Each window lasts as long as the previous narrator call, so a faster narrator sees a moving scene in more, shorter windows.</p>
+  </div>
+  <figure class="fig" style="margin:24px 0 0">
+    <img src="img/fig1.jpg" alt="Overview of Reins: three calls of a drawer episode with the narrator's entries, the five tasks, and simulation twins" loading="lazy">
+    <figcaption class="cap"><b>Overview.</b> Left: three calls of a Sol drawer episode; results report what the robot measured, a chain of pulls stops when its condition fails, and the narrator's account arrives with the next result. Middle: the five tasks. Right: sim-ready digital twins, each built from one head-camera frame, at rest and running in MuJoCo.</figcaption>
+  </figure>
+</section>
+
+<section class="col" id="results">
+  <h2>Results</h2>
+  <figure class="fig" style="margin:0">
+    <img src="img/fig2.jpg" alt="Per-episode results for each task and model, and the narrator's frame windows for Astra and Opus in a shell game" loading="lazy">
+    <figcaption class="cap"><b>Results and the narrator.</b> (a) Five episodes each (×: failure); time: median minutes; cost: mean API cost. (b) Astra's and Opus's narrators (standard tier) in a shell game: one square per frame, shaded by call.</figcaption>
+  </figure>
+  <ul class="points text">
+    <li>GPT-6.1 Sol succeeds in 22 of 25 real episodes (88%) across the five tasks.</li>
+    <li>Without the narrator, Sol wins 2 of 5 shell games. Without the harness (raw images, straight-down moves, <code>wait</code>, <code>look</code>), it wins none and takes 8 times as long.</li>
+    <li>All three models open the drawer every time; the shell game separates them. Sol's narrator (Ultrafast tier) answers in 1–6&nbsp;s and sees a shuffle in 8–11 windows; Astra's and Opus's take 3–40&nbsp;s and see it in 2–4. Astra's narrator still tracks the red object in 4 of 5 episodes, Opus's in none.</li>
+  </ul>
+</section>
+
+<section class="col" id="twins">
+  <h2>Simulation-ready twins</h2>
+  <p class="text">From one calibrated head-camera RGB frame, Reins can rebuild the scene in MuJoCo. Each object is a parametric model of its category, fitted to its SAM mask through the calibrated camera, with appearance from inverse rendering and mass and inertia from its closed mesh. A gate checks every movable body before it counts as ready for simulation: 11 of the 14 objects in the five scenes pass, and in every twin a scripted task runs to completion. This tool was not used in the real-robot episodes.</p>
+  <figure class="fig" style="margin:20px 0 0">
+    <img src="img/fig3.jpg" alt="Twins of the five task scenes: the camera frame, the twin rendered into it, a novel view, and three moments of a scripted task" loading="lazy">
+    <figcaption class="cap"><b>Twins of the five tasks.</b> Columns, from left: the frame; the twin rendered into the frame from the same calibrated camera; the twin from another view; the start, middle and end of a scripted task in MuJoCo, rendered in Blender.</figcaption>
+  </figure>
+</section>
+
+<section class="col" id="bibtex">
+  <h2>BibTeX</h2>
+  <div class="bib">
+    <pre id="bibtext">@misc{ye2026reins,
+  title  = {Reins: Frontier Multimodal Models Driving Real Robot Arms
+            on Long-Horizon Tasks, Zero-Shot},
+  author = {Ye, Pengfei and Dou, Zhiyang and Ma, Yuxiang and
+            Chen, Haonan and Yang, Heng and Adelson, Edward H.},
+  year   = {2026},
+  note   = {Extended abstract}
+}</pre>
+    <button class="copy" id="copybib" type="button">Copy</button>
+  </div>
+</section>
+
+<footer class="col">
+  Contact: <span class="mail">pfy712@mit.edu</span>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vids = document.querySelectorAll('video[data-auto]');
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        else v.pause();
+      });
+    }, { threshold: 0.35 });
+    vids.forEach(function (v) { io.observe(v); });
+  } else {
+    var teaser = document.querySelector('.teaser video');
+    if (teaser) teaser.controls = true;
+  }
+
+  var btn = document.getElementById('copybib');
+  var pre = document.getElementById('bibtext');
+  function selectBib() {
+    var r = document.createRange(); r.selectNodeContents(pre);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  btn.addEventListener('click', function () {
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1500); };
+    try {
+      navigator.clipboard.writeText(pre.textContent).then(done, function () { selectBib(); btn.textContent = 'Selected'; });
+    } catch (e) { selectBib(); btn.textContent = 'Selected'; }
+  });
+})();
+</script>
+</body>
+</html>
